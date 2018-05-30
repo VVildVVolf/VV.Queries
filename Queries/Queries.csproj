@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>VV.Queries</PackageId>
+    <Version>1.0.0-beta</Version>
+    <Authors>Viacheslav Volkov</Authors>
+    <RepositoryUrl>https://github.com/VVildVVolf/VV.Queries</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
