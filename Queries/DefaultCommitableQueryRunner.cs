@@ -6,7 +6,7 @@ using VV.Queries.Connection;
 
 namespace VV.Queries {
     public class DefaultCommitableQueryRunner<TContext> : ICommitableQueryRunner<TContext> where TContext: DbContext {
-        public async Task RunAsync(Func<IConnection, ICommiter, Task> commitableQuery) {
+        public async Task RunAsync(Func<IWritableConnection, ICommiter, Task> commitableQuery) {
             using (var context = _contextFactory.NewContext) {
                 var connection = _contextToConnectionWrapper.Wrap(context);
                 var commiter = _commiterFactory.Create(context);

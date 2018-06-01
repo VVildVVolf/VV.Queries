@@ -5,6 +5,6 @@ using VV.Queries.Connection;
 
 namespace VV.Queries {
     public interface ICommitableQueryRunner {
-        Task RunAsync(Func<IConnection, ICommiter, Task> commitableQuery);
+        Task RunAsync(Func<IWritableConnection, ICommiter, Task> commitableQuery);
     }
 }

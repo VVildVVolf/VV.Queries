@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using VV.Queries.CommitableConnection;
 
 namespace VV.Queries.Connection {
     public interface IContextToConnectionWrapper {
-        IConnection Wrap(DbContext dbContext);
+        IWritableConnection Wrap(DbContext dbContext);
     }
 }

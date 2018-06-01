@@ -7,7 +7,7 @@ namespace VV.Queries.UnsafeConnection {
             get {
                 var context = _contextFactory.NewContext;
                 var connection = _contextToConnectionWrapper.Wrap(context);
-                var result = new DefaultDisposableConnection(connection, () => context.Dispose());
+                var result = new DefaultDisposableConnection(connection, context.Dispose);
                 return result;
             }
         }

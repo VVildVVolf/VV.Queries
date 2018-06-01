@@ -1,10 +1,14 @@
 using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using VV.Queries.CommitableConnection;
 
 namespace VV.Queries.Connection {
-    public class DefaultConnection : IConnection
+    public class DefaultConnection : IWritableConnection
     {
-        public DbSet<T> Entities<T>() where T: class => _dbContext.Set<T>();
+        DbSet<T> IWritableConnection.Entities<T>() => _dbContext.Set<T>();
+
+        IQueryable<T> IConnection.Entities<T>() => ((IWritableConnection)this).Entities<T>();
 
         public DefaultConnection(DbContext dbContext){
             _dbContext = dbContext;

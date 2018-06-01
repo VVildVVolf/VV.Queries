@@ -1,11 +1,12 @@
 using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using VV.Queries.Connection;
 
 namespace VV.Queries.UnsafeConnection {
     public class DefaultDisposableConnection : IDisposableConnection
     {
-        public DbSet<T> Entities<T>() where T : class => _connection.Entities<T>();
+        public IQueryable<T> Entities<T>() where T : class => _connection.Entities<T>();
 
         public void Dispose()
         {

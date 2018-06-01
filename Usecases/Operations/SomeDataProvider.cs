@@ -5,9 +5,8 @@ namespace VV.Usecases.Operatios {
     class SomeDataProvider : ISomeDataProvider
     {
         public async Task<string> GetSomeDataAsync() {
-            string result = null;
-            await _readonlyQueryRunner.RunAsync(async connection => {
-                result = await _someDataProviderThroughDb.GetSomeDataAsync(connection);
+            var result = await _readonlyQueryRunner.RunAsync(async connection => {
+                return await _someDataProviderThroughDb.GetSomeDataAsync(connection);
             });
             return result;
         }
